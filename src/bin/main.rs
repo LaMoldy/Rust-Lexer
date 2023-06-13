@@ -40,7 +40,5 @@ fn main() -> Result<(), &'static str> {
         Err(_) => return Err("Could not open and read file provided")
     };
 
-    println!("{}", file_content);
-
     Ok(())
 }
