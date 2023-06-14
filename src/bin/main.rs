@@ -1,5 +1,7 @@
 use std::{fs::File, io::{self, Read}};
 
+use molgylang::lexer::lexer::Lexer;
+
 fn valid_argument_count(args: &Vec<String>) -> bool {
     const MAX_ARGUMENT_COUNT: usize = 2;
     args.len() == MAX_ARGUMENT_COUNT
@@ -39,6 +41,14 @@ fn main() -> Result<(), &'static str> {
         Ok(content) => content,
         Err(_) => return Err("Could not open and read file provided")
     };
+
+    let mut lex = Lexer::new(file_content);
+
+    let tokens = lex.get_tokens();
+
+    for tok in tokens {
+        println!("{}", tok);
+    }
 
     Ok(())
 }

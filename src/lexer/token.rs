@@ -16,6 +16,8 @@ pub enum TokenType {
     // Delimiters
     COMMA,
     SEMICOLON,
+    DQUOTES,
+    COLON,
     LPAREN,
     RPAREN,
     LCURLY,
@@ -33,6 +35,8 @@ impl fmt::Display for TokenType {
             Self::PLUS => write!(f, "PLUS"),
             Self::COMMA => write!(f, "COMMA"),
             Self::SEMICOLON => write!(f, "SEMICOLON"),
+            Self::COLON => write!(f, "COLON"),
+            Self::DQUOTES => write!(f, "DQUOTES"),
             Self::LPAREN => write!(f, "LPAREN"),
             Self::RPAREN => write!(f, "RPAREN"),
             Self::LCURLY => write!(f, "LCURLY"),
@@ -43,8 +47,8 @@ impl fmt::Display for TokenType {
 
 #[derive(Debug, PartialEq)]
 pub struct Token {
-    token_value: String,
-    token_type: TokenType
+    pub token_value: String,
+    pub token_type: TokenType
 }
 
 impl fmt::Display for Token {
