@@ -1,2 +1,2 @@
-# molgylang
-A custom programming language
+# Rust Lexer
+A lexer made for fun.
